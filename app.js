@@ -15,7 +15,7 @@ app.use((r, res, next) => { r.res.set(CORS); next(); });
 //app.use(bodyParser.urlencoded({extended: true}));
 //app.use(bodyParser.json());
 
-app.get('/login/', (req, res) => res.send('login: andreipavlevich'));
+//app.get('/login/', (req, res) => res.send('login: andreipavlevich'));
 
 //app.get('/test/', async (req,res) =>
   //  {
@@ -38,4 +38,4 @@ app.get('/login/', (req, res) => res.send('login: andreipavlevich'));
     
 app.all('/*', (req, res) => res.send('andreipavlevich'));
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT)
