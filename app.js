@@ -12,8 +12,8 @@ const CORS = {
     
 
 app.use((r, res, next) => { r.res.set(CORS); next(); });
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.json());
 
 app.get('/login/', (req, res) => res.send('login: andreipavlevich'))
 
