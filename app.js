@@ -13,8 +13,9 @@ app.get('/test/', async (req,res) =>
       const page = await browser.newPage();
       await page.goto(URL);
       await page.click('#bt');
-      await page.waitForSelector('#inp');
-      res.send(page.querySelector('#inp').value);
+      await page.waitForSelector('#inp')
+      .then(res.send(page.querySelector('#inp').value));
+      await browser.close();
 });
 
 app.all('/*', (req, res) => res.send('andreipavlevich'));
