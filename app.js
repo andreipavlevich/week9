@@ -36,6 +36,6 @@ app.use((r, res, next) => { r.res.set(CORS); next(); });
   
     //});
     
-app.all('/*', (req, res) => res.send('andreipavlevich'));
+app.get('/', (req, res) => res.send('andreipavlevich'));
 
 app.listen(process.env.PORT)
