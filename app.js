@@ -7,14 +7,17 @@ app.get('/login/', (req, res) => res.send('login:andrei'));
 
 app.get('/test/', async (req,res) =>
     {
-      await res.set('Content-Type', 'application/json');
-      const URL = 'https://kodaktor.ru/g/80b5cdf';
+      const URL = 'https://kodaktor.ru/g/bb4613b';
       const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
       const page = await browser.newPage();
       await page.goto(URL);
-      await page.click('#bt');
       await page.waitForSelector('#inp')
-      .then(res.send(page.querySelector('#inp').value));
+      const x = 'hello';
+      page.evaluate(x => document.querySelector('#inp').value = x, x);
+      await page.waitForSelector('#bt');
+      await page.click('#bt');
+      const got = await page.$eval('#inp', el => el.value);
+      console.log(got);
       await browser.close();
 });
 
