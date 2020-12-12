@@ -15,10 +15,10 @@ app.use((r, res, next) => { r.res.set(CORS); next(); });
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.get('/login/', (req, res) => res.send('andreipavlevich'))
+app.get('/login/', (req, res) => res.send('login: andreipavlevich'))
 
-app.get('/test/', async (req,res) =>
-    {
+//app.get('/test/', async (req,res) =>
+  //  {
       //await res.set('Content-Type', 'application/json');
       //const URL = 'https://kodaktor.ru/g/80b5cdf';
       //const browser = await puppeteer.launch({executablePath: 'usr/bin/chromium-browser', headless: true, args: ['--no-sandbox']});
@@ -29,14 +29,13 @@ app.get('/test/', async (req,res) =>
       //console.log(page.querySelector('#inp').value);
 
       //await res.send('ok');
-  const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-  const page = await browser.newPage();
+ // const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  //const page = await browser.newPage();
 
-  await page.goto("https://repl.it/");
+  //await page.goto("https://repl.it/");
   
-    });
+    //});
     
-    app.all('/*', (req, res) => res.send('andreipavlevich'));    
-};
+app.all('/*', (req, res) => res.send('andreipavlevich'));
 
 app.listen(process.env.PORT);
