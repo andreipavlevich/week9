@@ -24,7 +24,7 @@ app.get('/test/', async (req,res,next) =>
       await page.click('#bt');
       const got = await page.$eval('#inp', el => el.value);
     //  console.log(got);
-      res.send('hash is ok');
+      res.send(got);
       await browser.close();
 
 
