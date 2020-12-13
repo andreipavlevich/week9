@@ -20,7 +20,8 @@ app.get('/login/', (req, res) => res.send('login:andrei'));
 
 app.get('/test/', async (req,res,next) => 
 {
-      
+      res.set('Content-Type', 'application/json');
+      const { URL } = req.query;
           
 // const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 // const page = await browser.newPage();
@@ -29,7 +30,7 @@ app.get('/test/', async (req,res,next) =>
 // res.send('screen grabbed');
 // browser.close();
           
-      const URL = 'https://kodaktor.ru/g/80b5cdf';
+      //const URL = 'https://kodaktor.ru/g/80b5cdf';
       const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
       const page = await browser.newPage();
       await page.goto(URL);
