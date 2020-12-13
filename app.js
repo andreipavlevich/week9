@@ -4,9 +4,9 @@ const app = express();
     
 app.get('/login/', (req, res) => res.send('login:andrei'));
 
-app.get('/test/', (req,res,next) => 
+app.get('/test/', async (req,res,next) => 
 {
-      (async () => {
+      
           
 const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 const page = await browser.newPage();
@@ -25,8 +25,8 @@ browser.close();
     //  const got = await page.$eval('#inp', el => el.value);
     //  console.log(got);
     //  await browser.close();
-      })();
-        res.send('ok');
+
+
 });
 
 app.all('/*', (req, res) => res.send('andreipavlevich'));
