@@ -21,26 +21,19 @@ app.get('/login/', (req, res) => res.send('login:andrei'));
 app.get('/test/', async (req,res,next) => 
 {
       res.set('Content-Type', 'application/json');
-      const { URL } = req.query;
-          
-// const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
-// const page = await browser.newPage();
-// await page.goto('http://example.com');
-// await page.screenshot({path: 'example.png'});
-// res.send('screen grabbed');
-// browser.close();
+      const { URL } = req.query;          
           
       //const URL = 'https://kodaktor.ru/g/80b5cdf';
-      const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
-      const page = await browser.newPage();
-      await page.goto(URL);
-      await page.waitForSelector('#inp');
-      await page.waitForSelector('#bt');
-      await page.click('#bt');
-      const got = await page.$eval('#inp', el => el.value);
-    //  console.log(got);
-      res.send(got);
-      await browser.close();
+    //  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    //  const page = await browser.newPage();
+    //  await page.goto(URL);
+    //  await page.waitForSelector('#inp');
+    //  await page.waitForSelector('#bt');
+    //  await page.click('#bt');
+    //  const got = await page.$eval('#inp', el => el.value);
+      // res.send(got);
+    //  await browser.close();
+        res.send(URL);
 
 
 });
