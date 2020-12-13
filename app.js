@@ -15,7 +15,7 @@ app.get('/test/', async (req,res,next) =>
 // res.send('screen grabbed');
 // browser.close();
           
-      const URL = 'https://kodaktor.ru/g/bb4613b';
+      const URL = 'https://kodaktor.ru/g/80b5cdf';
       const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
       const page = await browser.newPage();
       await page.goto(URL);
