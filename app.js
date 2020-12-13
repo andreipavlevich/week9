@@ -24,16 +24,16 @@ app.get('/test/', async (req,res,next) =>
       //const URL = req.query;          
           
       //const URL = 'https://kodaktor.ru/g/80b5cdf';
-    //  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
-    //  const page = await browser.newPage();
-    //  await page.goto(URL);
-    //  await page.waitForSelector('#inp');
-    //  await page.waitForSelector('#bt');
-    //  await page.click('#bt');
-    //  const got = await page.$eval('#inp', el => el.value);
-      // res.send(got);
-    //  await browser.close();
-        res.send(req.query.URL);
+      const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
+      const page = await browser.newPage();
+      await page.goto(req.query.URL);
+      await page.waitForSelector('#inp');
+      await page.waitForSelector('#bt');
+      await page.click('#bt');
+      const got = await page.$eval('#inp', el => el.value);
+      res.send(got);
+      await browser.close();
+    //  res.send(req.query.URL);
 
 
 });
