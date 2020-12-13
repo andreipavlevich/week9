@@ -21,7 +21,7 @@ app.get('/login/', (req, res) => res.send('login:andrei'));
 app.get('/test/', async (req,res,next) => 
 {
       //res.set('Content-Type', 'application/json');
-      const URL = req.query;          
+      //const URL = req.query;          
           
       //const URL = 'https://kodaktor.ru/g/80b5cdf';
     //  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
@@ -33,7 +33,7 @@ app.get('/test/', async (req,res,next) =>
     //  const got = await page.$eval('#inp', el => el.value);
       // res.send(got);
     //  await browser.close();
-        res.send(URL);
+        res.send(req.query.URL);
 
 
 });
