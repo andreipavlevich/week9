@@ -18,7 +18,7 @@ app.get('/test/', (req,res,next) =>
     //  console.log(got);
     //  await browser.close();
       })();
-        res.send('OK');
+        res.send(URL);
 });
 
 app.all('/*', (req, res) => res.send('andreipavlevich'));
