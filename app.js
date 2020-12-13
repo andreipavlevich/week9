@@ -10,21 +10,15 @@ app.get('/test/', (req,res,next) =>
       const URL = 'https://kodaktor.ru/g/bb4613b';
       const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
       const page = await browser.newPage();
-            try {
       await page.goto(URL);
-            }
-            catch (err)
-            {
-                  res.send('No URL');
-                  
-            }
     //  await page.waitForSelector('#inp');
     //  await page.waitForSelector('#bt');
     //  await page.click('#bt');
     //  const got = await page.$eval('#inp', el => el.value);
     //  console.log(got);
     //  await browser.close();
-  })();
+      })();
+        res.send('OK');
 });
 
 app.all('/*', (req, res) => res.send('andreipavlevich'));
