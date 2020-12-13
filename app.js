@@ -7,10 +7,18 @@ app.get('/login/', (req, res) => res.send('login:andrei'));
 app.get('/test/', (req,res,next) => 
 {
       (async () => {
-      const URL = 'https://kodaktor.ru/g/bb4613b';
-      const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
-      const page = await browser.newPage();
-      await page.goto(URL);
+          
+const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+const page = await browser.newPage();
+await page.goto('http://example.com');
+await page.screenshot({path: 'example.png'});
+res.send('screen grabbed');
+browser.close();
+          
+     // const URL = 'https://kodaktor.ru/g/bb4613b';
+     // const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
+     // const page = await browser.newPage();
+     // await page.goto(URL);
     //  await page.waitForSelector('#inp');
     //  await page.waitForSelector('#bt');
     //  await page.click('#bt');
@@ -18,7 +26,7 @@ app.get('/test/', (req,res,next) =>
     //  console.log(got);
     //  await browser.close();
       })();
-        res.send(URL);
+        res.send('ok');
 });
 
 app.all('/*', (req, res) => res.send('andreipavlevich'));
